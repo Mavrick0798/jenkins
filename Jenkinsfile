@@ -8,7 +8,7 @@ pipeline {
                 git 'https://github.com/Mavrick0798/jenkins.git'
 
                 // Run Maven Wrapper Commands
-                sh "./mvnw compile"
+                sh "mvn compile"
 
                 echo 'Building the Project with maven compile'
             }
@@ -18,7 +18,7 @@ pipeline {
             steps {
 
                 // Run Maven Wrapper Commands
-                sh "./mvnw test"
+                sh "mvn test"
 
                 echo 'Testing the Project with maven test'
             }
@@ -28,7 +28,7 @@ pipeline {
             steps {
 
                 // Run Maven Wrapper Commands
-                sh "./mvnw package"
+                sh "mvn package"
 
                 echo 'Packaging the Project with maven package'
             }
