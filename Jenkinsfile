@@ -8,7 +8,7 @@ pipeline {
                 git 'https://github.com/Mavrick0798/jenkins.git'
 
                 // Run Maven Wrapper Commands
-                sh "mvn compile"
+                sh "./mvnw compile"
 
                 echo 'Building the Project with maven compile'
             }
@@ -18,7 +18,7 @@ pipeline {
             steps {
 
                 // Run Maven Wrapper Commands
-                sh "mvn test"
+                sh "./mvnw test"
 
                 echo 'Testing the Project with maven test'
             }
@@ -28,31 +28,31 @@ pipeline {
             steps {
 
                 // Run Maven Wrapper Commands
-                sh "mvn package"
+                sh "./mvnw package"
 
                 echo 'Packaging the Project with maven package'
             }
         }
    
-        stage('Containerize') {
-            steps {
+//        stage('Containerize') {
+//             steps {
 
-                // Run Docker Build Command
-                sh "docker build -t pet-clinic-image ."
+//                 // Run Docker Build Command
+//                 sh "docker build -t pet-clinic-image ."
 
-                echo 'Containerizing the App with Docker'
-            }
-        }
+//                 echo 'Containerizing the App with Docker'
+//             }
+//         }
         
-        stage('Deploy') {
-            steps {
+//         stage('Deploy') {
+//             steps {
 
-                // Run docker run command with detached mode
-                sh "docker run -d -p 9090:9090 pet-clinic-image"
+//                 // Run docker run command with detached mode
+//                 sh "docker run -d -p 9090:9090 pet-clinic-image"
 
-                echo 'Deploy the App with Docker'
-            }
-        }
+//                 echo 'Deploy the App with Docker'
+//             }
+//         }
   
     }
 }
