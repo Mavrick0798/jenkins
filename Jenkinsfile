@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Get some code from a GitHub repository
-                git 'https://github.com/mdjawad0/test2-jenkins.git'
+                git 'https://github.com/Mavrick0798/jenkins.git'
 
                 // Run Maven Wrapper Commands
                 sh "./mvnw compile"
@@ -34,25 +34,25 @@ pipeline {
             }
         }
    
-//        stage('Containerize') {
-//             steps {
+       stage('Containerize') {
+            steps {
 
-//                 // Run Docker Build Command
-//                 sh "docker build -t pet-clinic-image ."
+                // Run Docker Build Command
+                sh "docker build -t pet-clinic-image ."
 
-//                 echo 'Containerizing the App with Docker'
-//             }
-//         }
+                echo 'Containerizing the App with Docker'
+             }
+         }
         
-//         stage('Deploy') {
-//             steps {
+         stage('Deploy') {
+             steps {
 
-//                 // Run docker run command with detached mode
-//                 sh "docker run -d -p 9090:9090 pet-clinic-image"
+                // Run docker run command with detached mode
+                 sh "docker run -d -p 9090:9090 pet-clinic-image"
 
-//                 echo 'Deploy the App with Docker'
-//             }
-//         }
+                 echo 'Deploy the App with Docker'
+             }
+        }
   
     }
 }
