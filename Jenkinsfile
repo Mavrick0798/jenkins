@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Get some code from a GitHub repository
-                git 'https://github.com/Mavrick0798/jenkins.git'
+                git 'https://github.com/mdjawad0/test2-jenkins.git'
 
                 // Run Maven Wrapper Commands
                 sh "./mvnw compile"
